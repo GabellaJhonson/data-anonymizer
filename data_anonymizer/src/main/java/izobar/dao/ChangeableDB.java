@@ -1,11 +1,13 @@
 package izobar.dao;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public abstract class ChangeableDB {
-    private static LinkedList<String> fields;
+    protected static ArrayList<String> fields;
+    protected static ArrayList<String> type;
+    protected static ArrayList<String> masking;
 
-    public LinkedList<String> getFields(){
+    public ArrayList<String> getFields(){
         if(fields == null){
             setFields();
         }
