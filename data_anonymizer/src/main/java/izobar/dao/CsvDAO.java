@@ -9,23 +9,28 @@ import java.util.Arrays;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
-public class TextFileDAO extends ChangeableDB{
-    
-    public TextFileDAO(String fileName) throws CsvValidationException{
+public class CsvDAO extends ChangeableDB {
+
+    public CsvDAO(String fileName) {
+        super(fileName);
+    }
+
+    public void firstReadDB(String fileName) {
         try (CSVReader reader = new CSVReader(new FileReader(fileName))) {
             String[] header = reader.readNext();
             if (header != null) {
 
-                fields = new ArrayList<String> (Arrays.asList(header));
-                
+                fields = new ArrayList<String>(Arrays.asList(header));
+
                 System.out.println("Field names: " + fields);
             }
-        } catch (IOException e) {
+        } catch (IOException | CsvValidationException e) {
             e.printStackTrace();
         }
     }
-    public void setFields(){
 
+    public void writeFinalDB(String filename) {
+        
     }
-    
+
 }

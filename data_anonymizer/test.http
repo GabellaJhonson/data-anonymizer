@@ -1,0 +1,25 @@
+GET http://localhost:8080/setDataBase?dataBaseType=csv&fileName=C:\\Users\\zakhar.statkevich\\Documents\\GitHub\\data-anonymizer\\data_anonymizer\\db\\db.store-Orders.csv HTTP/1.1
+OData-Version: 4.0
+Content-Type: application/json;odata.metadata=minimal
+
+###
+
+GET http://localhost:8080/getFields HTTP/1.1
+OData-Version: 4.0
+Content-Type: application/json;odata.metadata=minimal
+
+###
+
+GET http://localhost:8080/api/orders/Orders HTTP/1.1
+OData-Version: 4.0
+Content-Type: application/json;odata.metadata=minimal
+
+###
+POST http://localhost:8080/api/store/purchase HTTP/1.1
+OData-Version: 4.0
+Content-Type: application/json;odata.metadata=minimal
+
+{
+    "item": "65a738c9-f14d-479c-aecd-eb4437cd6ee7",
+    "client": "018a0ab8-55b6-4adf-89ca-c3fadd25574d"
+}
