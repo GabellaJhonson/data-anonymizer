@@ -10,7 +10,7 @@ Content-Type: application/json;odata.metadata=minimal
 
 ###
 
-GET http://localhost:8080/api/orders/Orders HTTP/1.1
+GET http://localhost:8080/writeDataBase?fileName=C:\\Users\\zakhar.statkevich\\Documents\\GitHub\\data-anonymizer\\data_anonymizer\\db\\db.store-Test.csv HTTP/1.1
 OData-Version: 4.0
 Content-Type: application/json;odata.metadata=minimal
 

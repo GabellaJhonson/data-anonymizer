@@ -16,21 +16,31 @@ import izobar.service.DataService;
 public class DataController {
     @Autowired
     NamedParameterJdbcTemplate jdbcTemplate;
-    
+
     @Autowired
     private DataService dataService;
 
     @RequestMapping("/setDataBase")
-    public String setDataBase(@RequestParam String dataBaseType, @RequestParam String fileName) throws CsvValidationException {
-       
+    public String setDataBase(@RequestParam String dataBaseType, @RequestParam String fileName)
+            throws CsvValidationException {
+
         dataService.setDataBase(dataBaseType, fileName);
         return "create succefully";
     }
+
     @RequestMapping("/getFields")
     String getFields() throws CsvValidationException {
 
         ArrayList<String> list = dataService.getFields();
 
         return list.toString();
+    }
+
+    @RequestMapping("/writeDataBase")
+    String writeDataBase(@RequestParam String fileName) {
+
+        dataService.writeDataBase(fileName);
+
+        return "write succefully";
     }
 }

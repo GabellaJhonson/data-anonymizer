@@ -37,4 +37,8 @@ public class DataService {
     public ArrayList<String> getFields() {
         return ChangeableDB.getFields();
     }
+
+    public void writeDataBase(String fileName){
+        dataBase.writeFinalDB(fileName);
+    }
 }
