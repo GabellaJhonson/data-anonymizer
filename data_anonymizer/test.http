@@ -10,16 +10,42 @@ Content-Type: application/json;odata.metadata=minimal
 
 ###
 
-GET http://localhost:8080/writeDataBase?fileName=C:\\Users\\zakhar.statkevich\\Documents\\GitHub\\data-anonymizer\\data_anonymizer\\db\\db.store-Test.csv HTTP/1.1
+GET http://localhost:8080/getType HTTP/1.1
 OData-Version: 4.0
 Content-Type: application/json;odata.metadata=minimal
 
 ###
-POST http://localhost:8080/api/store/purchase HTTP/1.1
+
+GET http://localhost:8080/getMasking HTTP/1.1
 OData-Version: 4.0
 Content-Type: application/json;odata.metadata=minimal
 
-{
-    "item": "65a738c9-f14d-479c-aecd-eb4437cd6ee7",
-    "client": "018a0ab8-55b6-4adf-89ca-c3fadd25574d"
-}
+
+###
+POST http://localhost:8080/setMasking HTTP/1.1
+OData-Version: 4.0
+Content-Type: application/json;odata.metadata=minimal
+
+[
+    "Hello1",
+    "Hello1",
+    "Hello1"
+]
+
+
+###
+POST http://localhost:8080/setType HTTP/1.1
+OData-Version: 4.0
+Content-Type: application/json;odata.metadata=minimal
+
+[
+    "PERMANENT",
+    "DELETE",
+    "MASKING"
+]
+
+###
+
+GET http://localhost:8080/writeDataBase?fileName=C:\\Users\\zakhar.statkevich\\Documents\\GitHub\\data-anonymizer\\data_anonymizer\\db\\db.store-Test.csv HTTP/1.1
+OData-Version: 4.0
+Content-Type: application/json;odata.metadata=minimal

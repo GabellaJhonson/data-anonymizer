@@ -23,7 +23,7 @@ public class CsvDAO extends ChangeableDB {
             String[] header = reader.readNext();
             if (header != null) {
 
-                fields = new ArrayList<String>(Arrays.asList(header));
+                fields = new ArrayList<String>(Arrays.asList(header[0].split(";")));
 
                 System.out.println("Field names: " + fields);
             }
@@ -38,10 +38,11 @@ public class CsvDAO extends ChangeableDB {
              BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
 
             String line;
-
+            boolean isHeader = true;
             while ((line = reader.readLine()) != null) {
+
                 // Разделим строку на поля по запятой
-                String[] line_fields = line.split(",");
+                String[] line_fields = line.split(";");
 
                 // Используем StringBuilder для формирования новой строки
                 StringBuilder newLine = new StringBuilder();
@@ -55,7 +56,8 @@ public class CsvDAO extends ChangeableDB {
                             break;
 
                         case MASKING:
-                            newLine.append(masking.get(i)).append(";");
+                            newLine.append(isHeader? line_fields[i] : masking.get(i)).append(";");
+                            break;
 
                         case DELETE:    
                             break;
@@ -73,6 +75,8 @@ public class CsvDAO extends ChangeableDB {
                 // Записываем новую строку в выходной файл
                 writer.write(newLine.toString());
                 writer.newLine();
+
+                isHeader = false;
             }
 
         } catch (IOException e) {
