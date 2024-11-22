@@ -1,5 +1,6 @@
 # Деперсонализатор данных на Java
 
+![](https://github.com/GabellaJhonson/data-anonymizer/blob/main/photo/task.png)
 ## Проблема
 В банковской сфере существует такое понятие, как конфиденциальность данных клиентов. Их часто используют в машинном обучении, но по законодательству персональные данные должны быть защищены. Поэтому важно знать, как использовать такую информацию в своей деятельности, не нарушая закона, — это возможно только в обезличенной форме.
 
@@ -11,3 +12,21 @@
 - Возможность указать желаемую выходную структуру данных (оставить как было или преобразовать в указанную схему данных) и применить (файл, базы данных)
 - Автоматическое определение данных, которые необходимо обезличивать, и указание на нарушение при попытках их извлечения
 
+## Архитектура 
+![](https://github.com/GabellaJhonson/data-anonymizer/blob/main/photo/architecure_presentation.png)
+
+## Какую цель я преследовал? 
+Да все просто - **расширяемость**. Прикиньте, что завтра выйдет новая база данных, какая-нибудь [Ыть](https://habr.com/ru/companies/yandex/articles/311104/) в общем доступе. И что делать, хвататься за голову и все переписывать? Да нет, конечно.
+
+Благодаря выбранной архитектуре, вам достаточно лишь реализовать один класс - Data Access Object в интерфейсе ChangebleDB. 
+![](https://github.com/GabellaJhonson/data-anonymizer/blob/main/photo/architecure_screen.png)
+
+Более того необходимо имплементировать только два метода firstReadDB и writeFinalDB. Как пример [MongodbDAO.java](./data_anonymizer/src/main/java/izobar/dao/MongodbDAO.java)
+
+## ChatGPT фронтенд
+![](https://github.com/GabellaJhonson/data-anonymizer/blob/main/photo/frontend_1.png)
+
+## Хакатон T1 (заняли [первое место](https://www.linkedin.com/posts/belarusian-state-university_%D1%81%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D1%8B-%D1%84%D0%B0%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D0%B5%D1%82%D0%B0-%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%BD%D0%BE%D0%B9-%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B8-activity-7259851740194242560-2oQi?utm_source=share&utm_medium=member_desktop))
+![](https://github.com/GabellaJhonson/data-anonymizer/blob/main/photo/team.png)
+#### Да, как вы уже догадались, эту задачу я со своей командой решал на Хакатоне от [Т1](https://t1.ru/). Используя Python FastAPI мы решили ее за 4 часа (конечно с дикими костылями, но все работало), а на java spring я переписывал этот проект около 9 дней (зато реализовал свою идею с интерфейсами DAO). 
+## Спасибо, что дочитали до конца! 
